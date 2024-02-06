@@ -1,0 +1,8 @@
+{
+  "name": "athelete-management-enduser",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/athelete-management-enduser/src",
+  "projectType": "application",
+  "targets": {},
+  "tags": []
+}
