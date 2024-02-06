@@ -8,12 +8,12 @@ export default defineConfig({
   cacheDir: '../../node_modules/.vite/apps/athelete-management-enduser',
 
   server: {
-    port: 4200,
+    port: 3333,
     host: 'localhost',
   },
 
   preview: {
-    port: 4300,
+    port: 4333,
     host: 'localhost',
   },
 

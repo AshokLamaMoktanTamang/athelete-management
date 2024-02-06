@@ -1,0 +1,24 @@
+{
+  "name": "athelete-management-api",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/athelete-management-api/src",
+  "projectType": "application",
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "athelete-management-api:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "athelete-management-api:build:development"
+        },
+        "production": {
+          "buildTarget": "athelete-management-api:build:production"
+        }
+      }
+    }
+  },
+  "tags": []
+}
