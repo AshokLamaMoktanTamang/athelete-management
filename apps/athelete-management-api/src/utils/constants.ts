@@ -1,7 +1,7 @@
 export enum UserRole {
-    'ADMIN',
-    'COACH',
-    'ATHELETE'
+  'ADMIN' = 'ADMIN',
+  'COACH' = 'COACH',
+  'ATHELETE' = 'ATHELETE',
 }
 
-export const SALT_ROUNDS = 10
+export const SALT_ROUNDS = 10;

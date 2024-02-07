@@ -3,6 +3,7 @@ import { Request, Response, NextFunction } from 'express';
 
 import { sendResponse } from '@/helpers';
 import { HttpStatusCode } from 'axios';
+import { HttpMessage } from '@/utils';
 
 interface ValidationSchema {
   [key: string]: Joi.AnySchema;
@@ -22,7 +23,7 @@ const validateRequest = (schema: ValidationSchema) => {
       sendResponse<ValidationError>({
         res,
         status: HttpStatusCode.BadRequest,
-        message: 'Bad Request',
+        message: HttpMessage.BadRequest,
         data: error,
         isSuccess: false,
       });
