@@ -1,26 +1,21 @@
-import { sendResponse } from '@/helpers';
+import { CustomError, sendResponse } from '@/helpers';
 import { HttpMessage } from '@/utils';
 import { HttpStatusCode } from 'axios';
 import { NextFunction, Request, Response } from 'express';
 
 const errorHandler = (
-  err: Error,
+  err: CustomError,
   _req: Request,
   res: Response,
   _next: NextFunction
 ) => {
-  let statusCode = 500;
-
-  if ('statusCode' in err && typeof err['statusCode'] === 'number') {
-    statusCode = err['statusCode'];
-  }
+  console.log(err.status);
 
   sendResponse({
-    message: HttpMessage.InternalServerError,
-    status: HttpStatusCode.InternalServerError,
+    message: err.message || HttpMessage.InternalServerError,
+    status: err.status || HttpStatusCode.InternalServerError,
     res,
-    data: err,
   });
 };
 
-export default errorHandler
+export default errorHandler;

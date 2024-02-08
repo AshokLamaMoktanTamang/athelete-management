@@ -1,17 +1,17 @@
 import { NextFunction, Request, Response } from 'express';
 
 import { User } from '@/models';
-import { sendResponse } from '@/helpers';
+import { CustomError, sendResponse } from '@/helpers';
 import { getUserByEmail } from '@/services';
 import { ResponseMessage } from '@/utils';
 
 const signUp = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const {email} = req.body
+    const { email } = req.body;
 
-    const isExistingEmail = await getUserByEmail(email)
+    const isExistingEmail = await getUserByEmail(email);
 
-    if(!isExistingEmail) throw new Error(ResponseMessage.EMAIL_TAKEN)
+    if (isExistingEmail) throw new CustomError(ResponseMessage.EMAIL_TAKEN, 409);
 
     sendResponse({
       isSuccess: true,

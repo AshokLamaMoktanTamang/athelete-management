@@ -1,8 +1,6 @@
 import { CreateUser } from '@/dto';
 import { User } from '@/models';
 
-import { ResponseMessage } from '@/utils';
-
 export const createUser = async (user: CreateUser) => {
   try {
     const newUser = new User(user);
