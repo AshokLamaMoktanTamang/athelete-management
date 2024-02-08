@@ -5,4 +5,5 @@ export interface CreateUser {
   lastName: string;
   password: string;
   role: UserRole;
+  email: string;
 }

@@ -6,3 +6,8 @@ export const HttpMessage = {
   InternalServerError:
     'Internal Server Error: Something went wrong on the server while processing.',
 };
+
+export const ResponseMessage = {
+  FAILED_REGISTER: 'Failed to register the user!',
+  EMAIL_TAKEN: 'Email is already taken.'
+}

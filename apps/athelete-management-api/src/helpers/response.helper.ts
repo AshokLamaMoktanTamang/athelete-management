@@ -4,7 +4,7 @@ interface SendResponseParams<T> {
   res: Response;
   status: number;
   message: string;
-  isSuccess: boolean;
+  isSuccess?: boolean;
   data?: T;
 }
 
