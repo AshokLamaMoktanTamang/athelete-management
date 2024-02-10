@@ -1,9 +1,19 @@
-import mongoose from 'mongoose';
+import { Document, Schema, model } from 'mongoose';
 import bcrypt from 'bcrypt';
 
 import { SALT_ROUNDS, UserRole } from '@utils/index';
 
-const userSchema = new mongoose.Schema(
+interface UserDocument extends Document {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+  role: string;
+
+  comparePassword(enteredPassword: string): Promise<boolean>;
+}
+
+const userSchema = new Schema<UserDocument>(
   {
     firstName: {
       type: String,
@@ -54,6 +64,6 @@ userSchema.methods.comparePassword = async function (enteredPassword: string) {
   }
 };
 
-const User = mongoose.model('User', userSchema);
+const User = model('User', userSchema);
 
 export { User };

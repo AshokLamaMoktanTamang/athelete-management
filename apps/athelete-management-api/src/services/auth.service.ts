@@ -1,5 +1,6 @@
 import { CreateUser } from '@/dto';
 import { User } from '@/models';
+import { ResponseMessage } from '@/utils';
 
 export const createUser = async (user: CreateUser) => {
   try {
@@ -8,7 +9,7 @@ export const createUser = async (user: CreateUser) => {
   
     return newUser;
   } catch (error) {
-    throw new Error(error);
+    throw new Error(ResponseMessage.FAILED_REGISTER);
   }
 };
 

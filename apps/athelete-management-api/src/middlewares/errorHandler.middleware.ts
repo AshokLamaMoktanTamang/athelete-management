@@ -9,8 +9,6 @@ const errorHandler = (
   res: Response,
   _next: NextFunction
 ) => {
-  console.log(err.status);
-
   sendResponse({
     message: err.message || HttpMessage.InternalServerError,
     status: err.status || HttpStatusCode.InternalServerError,

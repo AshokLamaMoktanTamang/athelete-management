@@ -9,5 +9,7 @@ export const HttpMessage = {
 
 export const ResponseMessage = {
   FAILED_REGISTER: 'Failed to register the user!',
-  EMAIL_TAKEN: 'Email is already taken.'
+  EMAIL_TAKEN: 'Email is already taken.',
+
+  INVALID_CREDENTIALS: 'Invalid email or password!'
 }
