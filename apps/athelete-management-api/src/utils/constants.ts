@@ -11,3 +11,8 @@ export enum ActionEvent {
   'SIGN_UP',
   'LOGIN',
 }
+
+export enum SportStatus {
+  'ACTIVE',
+  'IN_ACTIVE',
+}

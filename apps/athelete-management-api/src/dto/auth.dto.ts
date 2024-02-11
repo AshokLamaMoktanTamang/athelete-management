@@ -7,6 +7,9 @@ export interface CreateUser extends SaveOptions {
   password: string;
   role: UserRole;
   email: string;
+  country: string;
+  contact: string;
+  interestedSports: Array<string>;
 }
 
 export type LoginResponse = {

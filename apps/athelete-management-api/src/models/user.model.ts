@@ -9,6 +9,9 @@ interface UserDocument extends Document {
   email: string;
   password: string;
   role: string;
+  country: string;
+  contact: string;
+  interestedSports: any;
 
   comparePassword(enteredPassword: string): Promise<boolean>;
 }
@@ -27,6 +30,14 @@ const userSchema = new Schema<UserDocument>(
       type: String,
       required: true,
     },
+    country: {
+      type: String,
+      required: true,
+    },
+    contact: {
+      type: String,
+      required: true,
+    },
     password: {
       type: String,
       required: true,
@@ -36,6 +47,9 @@ const userSchema = new Schema<UserDocument>(
       enum: Object.values(UserRole),
       default: 'USER',
     },
+    interestedSports: {
+      type: Array<Schema.Types.ObjectId>,
+    }
   },
   {
     timestamps: true,

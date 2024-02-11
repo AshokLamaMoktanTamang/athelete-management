@@ -12,7 +12,10 @@ const signUpSchema = {
   ...common,
   firstName: Joi.string().required(),
   lastName: Joi.string().required(),
-  role: Joi.string().valid(UserRole.ATHELETE, UserRole.COACH).required(),
+  role: Joi.string().valid(...Object.values(UserRole)).required(),
+  country: Joi.string().required(),
+  contact: Joi.string().required(),
+  interestedSports: Joi.array(),
 };
 
 const loginSchema = { ...common };

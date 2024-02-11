@@ -1,10 +1,10 @@
 import { ActionEvent } from '@/utils';
-import mongoose, { Schema, model } from 'mongoose';
+import { Schema, model } from 'mongoose';
 
 const actionEventSchema = new Schema(
   {
     user: {
-      type: mongoose.Schema.ObjectId,
+      type: Schema.ObjectId,
       ref: 'User',
     },
     event: {

@@ -47,6 +47,8 @@ const login = async (req: Request, res: Response, next: NextFunction) => {
       firstName: user.firstName,
       lastName: user.lastName,
       role: user.role,
+      country: user.country,
+      interestedSports: user.interestedSports,
     };
 
     const accessToken = generateAccessToken(tokenPayload);
