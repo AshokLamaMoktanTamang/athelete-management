@@ -11,5 +11,8 @@ export const ResponseMessage = {
   FAILED_REGISTER: 'Failed to register the user!',
   EMAIL_TAKEN: 'Email is already taken.',
 
-  INVALID_CREDENTIALS: 'Invalid email or password!'
+  INVALID_CREDENTIALS: 'Invalid email or password!',
+
+  USER_CREATED: 'User created successfully',
+  USER_LOGGED_IN: 'User Loged In successfully',
 }

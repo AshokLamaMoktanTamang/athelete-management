@@ -1,6 +1,6 @@
+import { startSession } from 'mongoose';
 import { Response, NextFunction } from 'express';
 
-import { getDbClient } from '@/config';
 import { CustomRequest, sendResponse } from '@/helpers';
 import { HttpMessage } from '@/utils';
 
@@ -9,7 +9,7 @@ const transaction = async (
   res: Response,
   next: NextFunction
 ) => {
-  const session = await getDbClient().startSession();
+  const session = await startSession();
 
   try {
     session.startTransaction();
@@ -17,9 +17,6 @@ const transaction = async (
     req.session = session;
 
     next();
-
-    await session.commitTransaction();
-    session.endSession();
   } catch (error) {
     await session.abortTransaction();
     session.endSession();
@@ -32,4 +29,21 @@ const transaction = async (
   }
 };
 
-export default transaction;
+const commitTransaction = async (
+  req: CustomRequest,
+  _res: Response,
+  next: NextFunction
+) => {
+  try {
+    await req.session.commitTransaction();
+    req.session.endSession();
+
+    next();
+  } catch (error) {
+    await req.session.abortTransaction();
+    req.session.endSession();
+    next(error);
+  }
+};
+
+export { transaction, commitTransaction };

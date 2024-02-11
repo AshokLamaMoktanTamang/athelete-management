@@ -5,3 +5,8 @@ export enum UserRole {
 }
 
 export const SALT_ROUNDS = 10;
+
+export enum ActionEvent {
+  'SIGN_UP',
+  'LOGIN',
+}

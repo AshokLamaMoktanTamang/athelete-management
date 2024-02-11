@@ -1,9 +1,9 @@
-import { NextFunction, Request, Response } from 'express';
+import { HttpStatusCode } from 'axios';
+import { NextFunction, Response, Request } from 'express';
 
 import { CustomError, sendResponse } from '@/helpers';
-import { createUser, getUserByEmail } from '@/services';
+import { createEvent, createUser, getUserByEmail } from '@/services';
 import { ResponseMessage } from '@/utils';
-import { User } from '@/models';
 
 const signUp = async (req: Request, res: Response, next: NextFunction) => {
   try {
@@ -14,14 +14,15 @@ const signUp = async (req: Request, res: Response, next: NextFunction) => {
     if (isExistingEmail)
       throw new CustomError(ResponseMessage.EMAIL_TAKEN, 409);
 
-    await createUser(req.body);
+    const newUser = await createUser(req.body);
+    await createEvent({ event: 'SIGN_UP', user: newUser._id });
 
     sendResponse({
       isSuccess: true,
-      message: 'Testing',
+      message: ResponseMessage.USER_CREATED,
       res,
-      status: 200,
-      data: req.body,
+      status: HttpStatusCode.Created,
+      data: newUser,
     });
   } catch (error) {
     next(error);
@@ -38,11 +39,13 @@ const login = async (req: Request, res: Response, next: NextFunction) => {
     if (!user || !isPasswordValid)
       throw new CustomError(ResponseMessage.INVALID_CREDENTIALS, 401);
 
+    await createEvent({ event: 'LOGIN', user: user._id });
+
     sendResponse({
       isSuccess: true,
-      message: 'Testing',
+      message: ResponseMessage.USER_LOGGED_IN,
       res,
-      status: 200,
+      status: HttpStatusCode.Accepted,
       data: req.body,
     });
   } catch (error) {
