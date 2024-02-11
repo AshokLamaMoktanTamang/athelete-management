@@ -8,3 +8,7 @@ export interface CreateUser extends SaveOptions {
   role: UserRole;
   email: string;
 }
+
+export type LoginResponse = {
+  accessToken: string
+}

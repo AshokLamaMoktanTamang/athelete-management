@@ -1,9 +1,10 @@
 import { HttpStatusCode } from 'axios';
 import { NextFunction, Response, Request } from 'express';
 
-import { CustomError, sendResponse } from '@/helpers';
+import { CustomError, generateAccessToken, sendResponse } from '@/helpers';
 import { createEvent, createUser, getUserByEmail } from '@/services';
 import { ResponseMessage } from '@/utils';
+import { LoginResponse } from '@/dto';
 
 const signUp = async (req: Request, res: Response, next: NextFunction) => {
   try {
@@ -41,12 +42,21 @@ const login = async (req: Request, res: Response, next: NextFunction) => {
 
     await createEvent({ event: 'LOGIN', user: user._id });
 
-    sendResponse({
+    const tokenPayload = {
+      userId: user._id,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      role: user.role,
+    };
+
+    const accessToken = generateAccessToken(tokenPayload);
+
+    sendResponse<LoginResponse>({
       isSuccess: true,
       message: ResponseMessage.USER_LOGGED_IN,
       res,
       status: HttpStatusCode.Accepted,
-      data: req.body,
+      data: { accessToken },
     });
   } catch (error) {
     next(error);
