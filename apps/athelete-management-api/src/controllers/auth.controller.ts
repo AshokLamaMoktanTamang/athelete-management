@@ -3,8 +3,8 @@ import { NextFunction, Response, Request } from 'express';
 
 import { CustomError, generateAccessToken, sendResponse } from '@/helpers';
 import { createEvent, createUser, getUserByEmail } from '@/services';
-import { ResponseMessage } from '@/utils';
-import { LoginResponse } from '@/dto';
+import { ResponseMessage, UserRole } from '@/utils';
+import { AccesstokenPayload, LoginResponse } from '@/dto';
 
 const signUp = async (req: Request, res: Response, next: NextFunction) => {
   try {
@@ -42,11 +42,11 @@ const login = async (req: Request, res: Response, next: NextFunction) => {
 
     await createEvent({ event: 'LOGIN', user: user._id });
 
-    const tokenPayload = {
+    const tokenPayload: AccesstokenPayload = {
       userId: user._id,
       firstName: user.firstName,
       lastName: user.lastName,
-      role: user.role,
+      role: user.role as keyof typeof UserRole,
       country: user.country,
       interestedSports: user.interestedSports,
     };

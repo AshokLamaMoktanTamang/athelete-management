@@ -15,3 +15,12 @@ export interface CreateUser extends SaveOptions {
 export type LoginResponse = {
   accessToken: string
 }
+
+export type AccesstokenPayload = {
+  userId: string,
+  firstName: string,
+  lastName: string,
+  role: keyof typeof UserRole,
+  country: string,
+  interestedSports?: Array<string>,
+}

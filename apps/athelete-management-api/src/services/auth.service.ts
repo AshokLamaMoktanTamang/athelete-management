@@ -3,10 +3,7 @@ import { User } from '@/models';
 import { ResponseMessage } from '@/utils';
 import { SaveOptions } from 'mongoose';
 
-export const createUser = async (
-  user: CreateUser,
-  saveOptions?: SaveOptions
-) => {
+const createUser = async (user: CreateUser, saveOptions?: SaveOptions) => {
   try {
     const newUser = new User(user);
     await newUser.save(saveOptions);
@@ -14,12 +11,12 @@ export const createUser = async (
     return newUser;
   } catch (error) {
     console.log('Error', error);
-    
+
     throw new Error(ResponseMessage.FAILED_REGISTER);
   }
 };
 
-export const getUserByEmail = async (email: string) => {
+const getUserByEmail = async (email: string) => {
   try {
     const user = await User.findOne({ email });
 
@@ -30,3 +27,17 @@ export const getUserByEmail = async (email: string) => {
     throw new Error(error);
   }
 };
+
+const getUserById = async (id: string) => {
+  try {
+    const user = await User.findById(id);
+
+    if (!user) return null;
+
+    return user;
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
+export { getUserByEmail, getUserById, createUser };
