@@ -1,0 +1,261 @@
+@use '../partials/functions' as function;
+
+$weight-300: 300;
+$weight-350: 350;
+$weight-400: 400;
+$weight-500: 500;
+$weight-600: 600;
+$weight-700: 700;
+
+$kungfu-line-height: 125%;
+$quiz-line-height: 100%;
+
+@font-face {
+  font-family: 'Kungfu Font';
+  src: url('@assets/styles/fonts/Outfit-Variable.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Kungfu Font Baracudda';
+  src: url('@assets/styles/fonts/Barracuda-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Quiz Font';
+  src: url('@assets/styles/fonts/Afacad-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Quiz Font Hans';
+  src: url('@assets/styles/fonts/BlackHanSans-Regular.ttf') format('truetype');
+}
+
+@mixin KungfuFontDefault($fw, $fs) {
+  font-family: 'Kungfu Font' !important;
+  line-height: $kungfu-line-height;
+  font-size: function.toRem($fs) !important;
+  font-weight: $fw !important;
+}
+
+@mixin KungfuHeadingFontDefault($ls, $fs) {
+  font-family: 'Kungfu Font Baracudda' !important;
+  line-height: $kungfu-line-height;
+  font-size: function.toRem($fs) !important;
+  font-weight: 700;
+  letter-spacing: function.toRem($ls) !important;
+}
+
+@mixin QuizFontDefault($fw, $fs) {
+  font-family: 'Quiz Font' !important;
+  line-height: $quiz-line-height;
+  font-size: function.toRem($fs) !important;
+  font-weight: $fw !important;
+}
+
+@mixin QuizHansDefault($fs) {
+  font-family: 'Quiz Font Hans' !important;
+  line-height: $kungfu-line-height;
+  font-size: function.toRem($fs) !important;
+  font-weight: 400;
+}
+
+// Variables
+@mixin HeadingTextH1 {
+  @include KungfuHeadingFontDefault(-0.64, 32);
+}
+
+@mixin HeadingTextH2 {
+  @include KungfuHeadingFontDefault(-0.56, 28);
+}
+
+@mixin HeadingTextH3 {
+  @include KungfuHeadingFontDefault(-0.48, 24);
+}
+
+@mixin HeadingTextH4 {
+  @include KungfuHeadingFontDefault(-0.4, 20);
+}
+
+@mixin TypographySmallLight {
+  @include KungfuFontDefault($weight-300, 12);
+}
+
+@mixin TypographySmallRegular {
+  @include KungfuFontDefault($weight-350, 12);
+}
+
+@mixin TypographySmallMedium {
+  @include KungfuFontDefault($weight-500, 12);
+}
+
+@mixin TypographySmallSemibold {
+  @include KungfuFontDefault($weight-600, 12);
+}
+
+@mixin TypographySmallBold {
+  @include KungfuFontDefault($weight-700, 12);
+}
+
+@mixin TypographyBaseLight {
+  @include KungfuFontDefault($weight-300, 16);
+}
+
+@mixin TypographyBaseRegular {
+  @include KungfuFontDefault($weight-350, 16);
+}
+
+@mixin TypographyBaseMedium {
+  @include KungfuFontDefault($weight-500, 16);
+}
+
+@mixin TypographyBaseSemibold {
+  @include KungfuFontDefault($weight-600, 16);
+}
+
+@mixin TypographyBaseBold {
+  @include KungfuFontDefault($weight-700, 16);
+}
+
+@mixin TypographyLargeLight {
+  @include KungfuFontDefault($weight-300, 24);
+}
+
+@mixin TypographyLargeRegular {
+  @include KungfuFontDefault($weight-350, 24);
+}
+
+@mixin TypographyLargeMedium {
+  @include KungfuFontDefault($weight-500, 24);
+}
+
+@mixin TypographyLargeSemibold {
+  @include KungfuFontDefault($weight-600, 24);
+}
+
+@mixin TypographyLargeBold {
+  @include KungfuFontDefault($weight-700, 24);
+}
+
+@mixin TypographyH1Light {
+  @include KungfuFontDefault($weight-300, 32);
+}
+
+@mixin TypographyH1Regular {
+  @include KungfuFontDefault($weight-350, 32);
+}
+
+@mixin TypographyH1Medium {
+  @include KungfuFontDefault($weight-500, 32);
+}
+
+@mixin TypographyH1Semibold {
+  @include KungfuFontDefault($weight-600, 32);
+}
+
+@mixin TypographyH1Bold {
+  @include KungfuFontDefault($weight-700, 32);
+}
+
+@mixin TypographyH2Light {
+  @include KungfuFontDefault($weight-300, 28);
+}
+
+@mixin TypographyH2Regular {
+  @include KungfuFontDefault($weight-350, 28);
+}
+
+@mixin TypographyH2Medium {
+  @include KungfuFontDefault($weight-500, 28);
+}
+
+@mixin TypographyH2Semibold {
+  @include KungfuFontDefault($weight-600, 28);
+}
+
+@mixin TypographyH2Bold {
+  @include KungfuFontDefault($weight-700, 28);
+}
+
+@mixin TypographyH3Light {
+  @include KungfuFontDefault($weight-300, 24);
+}
+
+@mixin TypographyH3Regular {
+  @include KungfuFontDefault($weight-350, 24);
+}
+
+@mixin TypographyH3Medium {
+  @include KungfuFontDefault($weight-500, 24);
+}
+
+@mixin TypographyH3Semibold {
+  @include KungfuFontDefault($weight-600, 24);
+}
+
+@mixin TypographyH3Bold {
+  @include KungfuFontDefault($weight-700, 24);
+}
+
+@mixin TypographyH4Ligh {
+  @include KungfuFontDefault($weight-300, 20);
+}
+
+@mixin TypographyH4Regular {
+  @include KungfuFontDefault($weight-350, 20);
+}
+
+@mixin TypographyH4Medium {
+  @include KungfuFontDefault($weight-500, 20);
+}
+
+@mixin TypographyH4Semibold {
+  @include KungfuFontDefault($weight-600, 20);
+}
+
+@mixin TypographyH4Bold {
+  @include KungfuFontDefault($weight-700, 20);
+}
+
+@mixin TypographyInputSmall {
+  @include KungfuFontDefault($weight-350, 12);
+}
+
+@mixin TypographyInputBase {
+  @include KungfuFontDefault($weight-350, 16);
+}
+
+@mixin TypographyInputLarge {
+  @include KungfuFontDefault($weight-350, 24);
+}
+
+@mixin TypographyButtonSmall {
+  @include KungfuFontDefault($weight-500, 12);
+}
+
+@mixin TypographyButtonBase {
+  @include KungfuFontDefault($weight-500, 16);
+}
+
+@mixin TypographyQuizLarge {
+  @include QuizHansDefault(24);
+}
+
+@mixin TypographyQuizSmall {
+  @include QuizHansDefault(12);
+}
+
+@mixin TypographyQuizBase {
+  @include QuizHansDefault(16);
+}
+
+@mixin TypographyQuizLargeRegular {
+  @include QuizFontDefault($weight-400, 24);
+}
+
+@mixin TypographyQuizBaseRegular {
+  @include QuizFontDefault($weight-400, 20);
+}
+
+@mixin TypographyQuizBaseMedium {
+  @include QuizFontDefault($weight-500, 20);
+}

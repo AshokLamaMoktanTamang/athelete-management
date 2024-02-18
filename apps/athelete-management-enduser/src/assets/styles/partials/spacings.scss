@@ -1,0 +1,3 @@
+@use './functions' as function;
+
+$auth-outlet-padding-y: function.toRem(60);

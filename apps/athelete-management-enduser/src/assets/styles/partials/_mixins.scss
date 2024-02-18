@@ -1,0 +1,6 @@
+@use './colors' as color;
+@use './functions' as function;
+
+@mixin activeBorder() {
+  border: 1px solid color.theme(default, primary-default);
+}

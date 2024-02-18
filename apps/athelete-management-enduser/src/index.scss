@@ -1,0 +1,65 @@
+@use '@assets/styles/bootstrap' as *;
+@use '@assets/styles/vendors/toastify' as *;
+@use '@assets/styles/main' as partials;
+
+* {
+  font-family: 'Kungfu Font';
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  --bs-danger-rgb: 252, 64, 64;
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  overflow: clip;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+}
+
+.justify-self-start {
+  justify-self: flex-start;
+}
+
+.whitespace-nowrap {
+  white-space: nowrap;
+}
+
+.font-inherit {
+  font-family: inherit;
+}
+
+.gap-12p {
+  gap: 12px;
+}
+
+.text-align-center {
+  text-align: center;
+}

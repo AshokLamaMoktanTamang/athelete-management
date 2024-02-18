@@ -1,0 +1,43 @@
+@use '@assets/styles/main' as partials;
+
+.inputLabel {
+  @include partials.TypographySmallRegular;
+}
+
+.text-input-control {
+  @include partials.TypographyInputBase;
+  box-shadow: none !important;
+  &:disabled {
+    color: partials.theme(default, common-neutrals-black);
+    background: partials.theme(default, common-neutrals-light) !important;
+    cursor: not-allowed;
+  }
+
+  // &:-webkit-autofill,
+  // &:-webkit-autofill:hover,
+  // &:-webkit-autofill:focus,
+  // &:-webkit-autofill:active {
+  //   -webkit-box-shadow: 0 0 0 30px partials.theme(default, common-neutrals-white) inset !important;
+  //   transition: background-color 5000s ease-in-out 0s;
+  // }
+}
+
+.endIcon {
+  position: absolute;
+  right: partials.toRem(20);
+  bottom: 0;
+  transform: translateY(partials.toRem(-16));
+  height: partials.toRem(24);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.textAreaContainer {
+  position: relative;
+
+  textarea {
+    height: 100%;
+    resize: none;
+  }
+}

@@ -1,0 +1,6 @@
+$kungfu-default-font-size: 16;
+
+@function toRem($value) {
+  $remValue: calc($value / $kungfu-default-font-size) + rem;
+  @return $remValue;
+}

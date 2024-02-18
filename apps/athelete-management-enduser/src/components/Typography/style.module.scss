@@ -1,0 +1,175 @@
+@use '@assets/styles/main' as partials;
+
+.typography {
+  margin-bottom: 0;
+  line-height: 150%;
+  word-break: break-word;
+  color: inherit;
+  fill: inherit;
+
+  &__link {
+    color: partials.theme(default, theme-secondary-default);
+    cursor: pointer;
+    text-decoration: none;
+    margin: 0 !important;
+  }
+}
+
+.typographyColorInfo {
+  color: partials.theme(default, state-info-default);
+  fill: partials.theme(default, state-info-default);
+}
+
+.typographyColorDanger {
+  color: partials.theme(default, state-danger-default);
+  fill: partials.theme(default, state-danger-default);
+}
+
+.typographyColorPrimary {
+  color: partials.theme(default, theme-primary-default);
+  fill: partials.theme(default, theme-primary-default);
+}
+
+.typographyPrimaryDark {
+  color: partials.theme(default, theme-primary-dark);
+  fill: partials.theme(default, theme-primary-dark);
+  path {
+    fill: partials.theme(default, theme-primary-dark);
+  }
+}
+
+.typographyColorSecondary {
+  color: partials.theme(default, theme-secondary-default);
+  fill: partials.theme(default, theme-secondary-default);
+}
+
+.typographySecondaryDark {
+  color: partials.theme(default, theme-secondary-dark);
+  fill: partials.theme(default, theme-secondary-dark);
+  path {
+    fill: partials.theme(default, theme-secondary-dark);
+  }
+}
+
+.typographyColorTertiary {
+  color: partials.theme(default, theme-tertiary-default);
+  fill: partials.theme(default, theme-tertiary-default);
+  svg {
+    fill: partials.theme(default, theme-tertiary-default);
+  }
+}
+
+.typographyColorWarning {
+  color: partials.theme(default, state-warning-default);
+  fill: partials.theme(default, state-warning-default);
+}
+
+.typographyCommonNeutralsGray {
+  color: partials.theme(default, common-neutrals-gray);
+  fill: partials.theme(default, common-neutrals-gray);
+}
+
+.typographyCommonNeutralsBlack {
+  color: partials.theme(default, common-neutrals-black);
+  fill: partials.theme(default, common-neutrals-black);
+}
+
+.heading1 {
+  @include partials.TypographyH1Regular;
+}
+
+.heading2 {
+  @include partials.TypographyH2Regular;
+}
+
+.heading3 {
+  @include partials.TypographyH3Regular;
+}
+
+.heading4 {
+  @include partials.TypographyH4Regular;
+}
+
+.heading1Medium {
+  @include partials.TypographyH1Medium;
+}
+
+.heading2Medium {
+  @include partials.TypographyH2Medium;
+}
+
+.baseLight {
+  @include partials.TypographyBaseLight;
+}
+
+.baseRegular {
+  @include partials.TypographyBaseRegular;
+}
+
+.baseMedium {
+  @include partials.TypographyBaseMedium;
+}
+
+.baseSemibold {
+  @include partials.TypographyBaseSemibold;
+}
+
+.baselBold {
+  @include partials.TypographyBaseBold;
+}
+
+.smallLight {
+  @include partials.TypographySmallLight;
+}
+
+.smallRegular {
+  @include partials.TypographySmallRegular;
+}
+
+.smallMedium {
+  @include partials.TypographySmallMedium;
+}
+
+.smallSemibold {
+  @include partials.TypographySmallSemibold;
+}
+
+.smallBold {
+  @include partials.TypographySmallBold;
+}
+
+.largeLight {
+  @include partials.TypographyLargeLight;
+}
+
+.largeRegular {
+  @include partials.TypographyLargeRegular;
+}
+
+.largeMedium {
+  @include partials.TypographyLargeMedium;
+}
+
+.largeSemibold {
+  @include partials.TypographyLargeSemibold;
+}
+
+.largeBold {
+  @include partials.TypographyLargeBold;
+}
+
+.titleH1 {
+  @include partials.HeadingTextH1;
+}
+
+.titleH2 {
+  @include partials.HeadingTextH2;
+}
+
+.titleH3 {
+  @include partials.HeadingTextH3;
+}
+
+.titleH4 {
+  @include partials.HeadingTextH4;
+}

@@ -1,0 +1,6 @@
+@use './colors' as colors;
+
+:export {
+  loading-base-color: colors.theme(default, theme-primary-light);
+  loading-highlight-color: colors.theme(default, theme-primary-background);
+}

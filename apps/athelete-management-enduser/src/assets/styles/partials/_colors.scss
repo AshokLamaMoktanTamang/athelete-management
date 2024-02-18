@@ -1,0 +1,72 @@
+$kungfu-theme-colors: (
+  default: ( //primary
+    theme-primary-default: #FFCC70,
+    theme-primary-dark: #D1A350,
+    theme-primary-background: #FAEDCA,
+    theme-primary-light: #FAF6EB,
+
+    //secondary
+    theme-secondary-default:#10BD74,
+    theme-secondary-dark: #135338,
+    theme-secondary-background: #BCF0DA,
+
+    //tertiary
+    theme-tertiary-default:#968A79,
+    theme-tertiary-dark: #5E564A,
+    theme-tertiary-background: #E6E4DE,
+
+    //success
+    state-success-default: #135338,
+    state-success-background: #BCF0DA,
+
+    //info
+    state-info-default: #0E4781,
+    state-info-background: #D1E5FA,
+
+    //danger
+    state-danger-default: #FC4040,
+    state-danger-background: #FCCFCF,
+
+    //warning
+    state-warning-default: #FA824C,
+    state-warning-background: #FDD6C3,
+
+    //common
+    common-neutrals-black: #27232A,
+    common-neutrals-gray: #8D8D8D,
+    common-neutrals-white: #FCFCFC,
+    common-neutrals-border: #E5E5E5,
+    common-neutrals-light: #F3F3F3,
+    common-neutrals-background: #FFFBF4,
+  ),
+
+  quiz:(
+    theme-primary-default: #FFCC70,
+    theme-primary-dark: #f6b540,
+    theme-primary-background: #FAEDCA,
+    theme-primary-light: #FAF6EB,
+    theme-primary-background-opa: rgba(250, 237, 202, 0.5),
+
+    //secondary
+    theme-secondary-default:#10BD74,
+    theme-secondary-dark: #174330,
+    theme-secondary-background: #BDF6DE,
+
+    //tertiary
+    theme-tertiary-default:#968A79,
+    theme-tertiary-dark: #5E564A,
+    theme-tertiary-background: #E6E4DE,
+
+    //common
+    common-neutrals-black: #262626,
+    common-neutrals-gray: #868686,
+    common-neutrals-white: #FCFCFC,
+    common-neutrals-border: #E5E5E5,
+    common-neutrals-light: #F3F3F3,
+    common-neutrals-background: #FFFBF4,
+  )
+);
+
+@function theme($theme: string, $key: string) {
+  @return map-get($kungfu-theme-colors, $theme, $key);
+}

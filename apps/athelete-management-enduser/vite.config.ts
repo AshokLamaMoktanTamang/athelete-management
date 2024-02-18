@@ -2,13 +2,14 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
+import path from 'path';
 
 export default defineConfig({
   root: __dirname,
   cacheDir: '../../node_modules/.vite/apps/athelete-management-enduser',
 
   server: {
-    port: 3333,
+    port: 3334,
     host: 'localhost',
   },
 
@@ -19,11 +20,6 @@ export default defineConfig({
 
   plugins: [react(), nxViteTsPaths()],
 
-  // Uncomment this if you are using workers.
-  // worker: {
-  //  plugins: [ nxViteTsPaths() ],
-  // },
-
   build: {
     outDir: '../../dist/apps/athelete-management-enduser',
     reportCompressedSize: true,
@@ -32,18 +28,17 @@ export default defineConfig({
     },
   },
 
-  test: {
-    globals: true,
-    cache: {
-      dir: '../../node_modules/.vitest',
-    },
-    environment: 'jsdom',
-    include: ['src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
-
-    reporters: ['default'],
-    coverage: {
-      reportsDirectory: '../../coverage/apps/athelete-management-enduser',
-      provider: 'v8',
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src/'),
+      '@assets': `${path.resolve(__dirname, './src/assets/')}`,
+      '@components': `${path.resolve(__dirname, './src/components/')}`,
+      '@hooks': `${path.resolve(__dirname, './src/hooks/')}`,
+      '@layouts': `${path.resolve(__dirname, './src/layouts/')}`,
+      '@pages': `${path.resolve(__dirname, './src/pages/')}`,
+      '@routes': `${path.resolve(__dirname, './src/routes/')}`,
+      '@store': `${path.resolve(__dirname, './src/store/')}`,
+      '@utils': `${path.resolve(__dirname, './src/utils/')}`,
     },
   },
 });
